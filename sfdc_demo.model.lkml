@@ -1,7 +1,7 @@
 include: "/dashboards/*.lookml"
-connection: "looker-private-demo"
+connection: "pandera-demo-data-science"
 label: "SaaS"
-
+include: "/**/*.view.lkml"
 include: "/sfdc_views/*.view.lkml"
 include: "/sfdc_views/derived_tables/*.view.lkml"
 include: "/zendesk_views/*.view.lkml"

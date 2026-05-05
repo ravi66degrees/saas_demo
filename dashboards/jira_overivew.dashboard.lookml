@@ -8,7 +8,7 @@
     model: sfdc_demo
     explore: ticket
     type: looker_grid
-    fields: [issue.key, issue.summary, jira_user.name, issue_type.name, issue.story_points,
+    fields: [ issue.summary, jira_user.name, issue_type.name, issue.story_points,
       ticket.count]
     filters:
       issue.created_date: 5 weeks
@@ -42,7 +42,6 @@
       ticket.count: Number of Chat Support Tickets
     series_column_widths:
       issue.id: 133
-      issue.key: 133
     series_cell_visualizations:
       ticket.count:
         is_active: true
@@ -398,7 +397,7 @@
     model: sfdc_demo
     explore: ticket
     type: looker_grid
-    fields: [issue.key, issue.summary, jira_user.name, issue.story_points, issue._remaining_estimate,
+    fields: [issue.summary, jira_user.name, issue.story_points, issue._remaining_estimate,
       issue.due_date]
     filters:
       issue.due_date: before 2 weeks from now
@@ -425,13 +424,12 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [issue.key, issue.summary, jira_user.name, issue.story_points, issue._remaining_estimate,
+    column_order: [issue.summary, jira_user.name, issue.story_points, issue._remaining_estimate,
       issue.due_date]
     show_totals: true
     show_row_totals: true
     series_column_widths:
       issue.id: 133
-      issue.key: 133
     header_font_color: "#5F6368"
     header_background_color: "#FBBC04"
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#4285F4",
@@ -485,7 +483,6 @@
     show_row_totals: true
     series_column_widths:
       issue.id: 133
-      issue.key: 133
     header_font_color: "#E8EAED"
     header_background_color: "#EA4335"
     defaults_version: 1

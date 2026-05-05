@@ -8,8 +8,7 @@
     model: sfdc_demo
     explore: ticket
     type: looker_grid
-    fields: [issue.key, issue.summary, jira_user.name, issue_type.name, issue.story_points,
-      ticket.count]
+    fields: [issue_type.name,ticket.count]
     filters:
       issue.created_date: 5 weeks
       issue.is_issue_resolved: 'No'
@@ -42,7 +41,6 @@
       ticket.count: Number of Chat Support Tickets
     series_column_widths:
       issue.id: 133
-      issue.key: 133
     series_cell_visualizations:
       ticket.count:
         is_active: true
@@ -398,12 +396,8 @@
     model: sfdc_demo
     explore: ticket
     type: looker_grid
-    fields: [issue.key, issue.summary, jira_user.name, issue.story_points, issue._remaining_estimate,
-      issue.due_date]
     filters:
-      issue.due_date: before 2 weeks from now
       status_category.name: In Progress
-    sorts: [issue.due_date]
     limit: 500
     dynamic_fields: [{measure: tickets_submitted_by_high_value_accounts, based_on: ticket.count,
         type: count_distinct, label: Tickets Submitted by High Value Accounts, value_format: !!null '',
@@ -425,13 +419,10 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     show_sql_query_menu_options: false
-    column_order: [issue.key, issue.summary, jira_user.name, issue.story_points, issue._remaining_estimate,
-      issue.due_date]
     show_totals: true
     show_row_totals: true
     series_column_widths:
       issue.id: 133
-      issue.key: 133
     header_font_color: "#5F6368"
     header_background_color: "#FBBC04"
     conditional_formatting: [{type: along a scale..., value: !!null '', background_color: "#4285F4",
@@ -451,7 +442,6 @@
     type: single_value
     fields: [issue.count]
     filters:
-      issue.due_date: before 0 days ago
       issue.is_issue_resolved: 'No'
     limit: 500
     dynamic_fields: [{measure: tickets_submitted_by_high_value_accounts, based_on: ticket.count,
@@ -485,7 +475,6 @@
     show_row_totals: true
     series_column_widths:
       issue.id: 133
-      issue.key: 133
     header_font_color: "#E8EAED"
     header_background_color: "#EA4335"
     defaults_version: 1

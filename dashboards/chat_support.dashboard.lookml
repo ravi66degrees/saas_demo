@@ -727,12 +727,11 @@
     model: sfdc_demo
     explore: ticket
     type: looker_grid
-    fields: [issue.key, issue.description, ticket.count, issue.is_issue_resolved,
+    fields: [issue.description, ticket.count, issue.is_issue_resolved,
       issue.created_date, jira_user.name]
     filters:
       ticket.action: feature request submitted,bug submitted
       ticket.created_date: this year
-      issue.key: "-NULL"
     sorts: [ticket.count desc]
     limit: 500
     query_timezone: America/Los_Angeles
@@ -756,12 +755,10 @@
     show_row_totals: true
     series_labels:
       user.name: Assignee Name
-      issue.key: Issue Key
       issue.description: Description
       ticket.count: Number Support Tickets Submitted
     series_column_widths:
       issue.description: 514
-      issue.key: 140
       issue.is_issue_resolved: 87
       issue.created_date: 154
     series_cell_visualizations:
